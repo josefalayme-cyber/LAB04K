@@ -34,19 +34,14 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovieCounter(modifier: Modifier = Modifier) {
-    // Reemplazo de remember por rememberSaveable para persistencia de estado
+    // USO DE REMEMBERSAVEABLE PARA PERSISTENCIA DE ESTADO ANTE ROTACIÓN
     var count by rememberSaveable { mutableStateOf(0) }
     var movieName by rememberSaveable { mutableStateOf("") }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = {
-                    Text(
-                        "🎬 Cartelera de Cine",
-                        fontWeight = FontWeight.Bold
-                    )
-                },
+                title = { Text("🎬 Cartelera de Cine", fontWeight = FontWeight.Bold) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -117,7 +112,6 @@ fun MovieCounter(modifier: Modifier = Modifier) {
         }
     }
 }
-
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewMovieCounter() {
